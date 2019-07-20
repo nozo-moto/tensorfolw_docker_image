@@ -2,11 +2,12 @@ version: '2.3'
 services:
     tensorflow:
         container_name: nozomi_tensorflow
-        image: nozomi0966/tensorflow
+        image: nozomi0966/tensorflow:latest
         volumes:
                 - $HOME/:/tf
         runtime: nvidia
         tty: true
+        restart: always
         command: /usr/local/bin/jupyter notebook --NotebookApp.token='nozomi' --ip=0.0.0.0 --allow-root
         ports:
             - 8888:8888
