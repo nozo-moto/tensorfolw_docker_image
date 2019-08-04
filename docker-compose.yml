@@ -5,10 +5,17 @@ services:
         image: nozomi0966/tensorflow:latest
         volumes:
                 - $HOME/:/tf
+                - /tmp/.X11-unix:/tmp/.X11-unix  
+                  # - /dev/dsp:/dev/dsp:rw
+        devices:
+                - "/dev/snd:/dev/snd"
         runtime: nvidia
         tty: true
         restart: always
-        command: /usr/local/bin/jupyter notebook --NotebookApp.token='nozomi' --ip=0.0.0.0 --allow-root
+        command: bash -c "xterm & /usr/local/bin/jupyter notebook --NotebookApp.token='nozomi' --ip=0.0.0.0 --allow-root"
+        privileged: true
+        environment: 
+            - DISPLAY=$DISPLAY
         ports:
             - 8888:8888
 
