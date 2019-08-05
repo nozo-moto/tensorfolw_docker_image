@@ -12,4 +12,4 @@ RUN python3 -m pip install mecab-python3
 
 # install pygame
 RUN python3 -m pip install pygame scikit-image
-RUN apt install libsdl-mixer1.2
+RUN apt install -y libsdl-mixer1.2
