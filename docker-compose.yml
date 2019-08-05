@@ -6,7 +6,6 @@ services:
         volumes:
                 - $HOME/:/tf
                 - /tmp/.X11-unix:/tmp/.X11-unix  
-                  # - /dev/dsp:/dev/dsp:rw
         devices:
                 - "/dev/snd:/dev/snd"
         runtime: nvidia
